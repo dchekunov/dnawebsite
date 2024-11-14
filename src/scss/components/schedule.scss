@@ -1,0 +1,81 @@
+.schedule {
+    display: flex;
+    flex-direction: column;
+
+    .schedule-item {
+        padding-bottom: 10px;
+        width: 50%;
+        position: relative;
+        max-height: 80px;
+
+        &:nth-child(2n) {
+            align-self: flex-end;
+            border-left: 1px solid black;
+            padding-left: 20px;
+            width: calc(50% + 1px);
+
+            &::before {
+                content: '';
+                z-index: 1;
+                width: 9px;
+                height: 9px;
+                border-radius: 9px;
+                border: 1px solid black;
+                position: absolute;
+                left: -5px;
+                top: 8px;
+                background-color: #fffaf4;
+            }
+        }
+
+        &:nth-child(2n+1) {
+            align-self: flex-start;
+            border-right: 1px solid black;
+            padding-right: 20px;
+
+            &::after {
+                content: '';
+                z-index: 1;
+                width: 9px;
+                height: 9px;
+                border-radius: 9px;
+                border: 1px solid black;
+                position: absolute;
+                right: -5px;
+                top: 8px;
+                background-color: #fffaf4;
+            }
+        }
+
+        &:first-child {
+            &::after {
+                top: 0px;
+            }
+        }
+
+        &:last-child {
+            &::before {
+                content: '';
+                z-index: 1;
+                width: 9px;
+                height: 9px;
+                border-radius: 9px;
+                border: 1px solid black;
+                position: absolute;
+                right: -5px;
+                bottom: 0px;
+                background-color: #fffaf4;
+            }
+        }
+
+        &__title {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        &__description {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}

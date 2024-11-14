@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "build": "webpack --config webpack.config.js --mode=production"
+  },
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "image-minimizer-webpack-plugin": "^4.1.0",
+    "imagemin": "^9.0.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^8.0.0",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^11.0.1",
+    "sass": "^1.80.6",
+    "sass-loader": "^16.0.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5",
+    "simple-parallax-js": "^6.0.1"
+  }
+}

@@ -1,0 +1,11 @@
+/* Countdown Timer */
+#countdown {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.5em;
+    color: #fff;
+
+    & > div {
+        margin-right: 5px;
+    }
+}
