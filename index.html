@@ -15,18 +15,25 @@
         <div class="container">
             <div class="col-12">
                 <div class="header-wrapper">
-                    <div class="logo">DnA</div>
+                    <div class="logo">
+                        <img class="logo--static" src="dist/assets/logo.png?as=webp">
+                        <img class="logo--fixed" src="dist/assets/logo_2.png">
+                    </div>
                     <div class="menu">
-                        <div class="menu-button" id="menuOpen"><i class="fa-solid fa-bars"></i></div>
-                        <div class="menu-button" id="menuClose"><i class="fa-solid fa-xmark"></i></div>
+                        <div class="menu-button" id="menuButton">
+                            Menu
+                            <div class="menu-button-embelishment"></div>
+                        </div>
                         <div class="menu-dropdown" id="mainMenuDropdown">
+                            <div class="menu-dropdown-embelishment menu-dropdown-embelishment--top">U</div>
                             <a href="#sectionWelcome" class="menu-item">Home</a>
                             <a href="#sectionNote" class="menu-item">Note</a>
                             <a href="#sectionDetails" class="menu-item">Details</a>
                             <a href="#sectionSchedule" class="menu-item">Schedule</a>
                             <a href="#sectionStay" class="menu-item">Stay</a>
-                            <a href="#sectionPhotos" class="menu-item">Photos</a>
+                            <a href="#sectionPhotos" class="menu-item">Event Rules</a>
                             <a href="#sectionRSVP" class="menu-item">RSVP</a>
+                            <div class="menu-dropdown-embelishment menu-dropdown-embelishment--bottom">U</div>
                         </div>
                     </div>
                 </div>
@@ -44,7 +51,13 @@
                             <div><span id="hours">0</span> Hours </div>
                             <div><span id="minutes">0</span> Minutes </div>
                         </div>
+                        <div class="welcome-embelishment welcome-embelishment--top">
+                            <div>U</div>
+                        </div>
                         <h1>Dmytro<br> &<br> Anna</h1>
+                        <div class="welcome-embelishment welcome-embelishment--bottom">
+                            <div>U</div>
+                        </div>
                         <p>14 December 2024</p>
                     </div>
                 </div>
@@ -62,16 +75,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-5">
-                    <div class="note-image-wrapper">
-                        <div class="note-image">
-                            <img src="dist/assets/p_6.jpg">
+                    <div class="note-image-block">
+                        <div class="note-image-wrapper">
+                            <div class="note-image">
+                                <img src="dist/assets/p_6.jpg">
+                            </div>
+                            <div class="note-image-cover"></div>
                         </div>
-                        <div class="note-image-cover"></div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 offset-lg-1">
                     <div class="note-wrapper">
                         <h2>A Note from the <br> Bride & Groom</h2>
+                        <div class="title-embelishment title-embelishment--note">a</div>
                         <p>Dear Family and Friends,</p>
                         <p>We are absolutely delighted to welcome you to our wedding celebration on December 14th at
                             14:00. Each of you has been an important part of our journey, and it means a lot to us to
@@ -99,6 +115,7 @@
                 <div class="col-12 col-lg-5">
                     <div class="details-wrapper">
                         <h2>Wedding Details</h2>
+                        <div class="title-embelishment title-embelishment--details">a</div>
                         <h3>DATE</h3>
                         <p>December 14, 2024 <br> 14:00</p>
                         <h3>RECEPTION LOCATION</h3>
@@ -113,11 +130,13 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 offset-lg-1">
-                    <div class="details-image-wrapper">
-                        <div class="details-image">
-                            <img src="dist/assets/p_2.jpg">
+                    <div class="details-image-block">
+                        <div class="details-image-wrapper">
+                            <div class="details-image">
+                                <img src="dist/assets/p_2.jpg">
+                            </div>
+                            <div class="details-image-cover"></div>
                         </div>
-                        <div class="details-image-cover"></div>
                     </div>
                 </div>
             </div>
@@ -129,13 +148,19 @@
         <div class="container-fluid p-0">
             <div class="row">
                 <div class="col-12 col-lg-5">
-                    <div class="schedule-image-wrapper">
-                        <div class="schedule-image"></div>
+                    <div class="schedule-image-block">
+                        <div class="schedule-image-wrapper">
+                            <div class="schedule-image">
+                                <img src="dist/assets/p_1.jpg">
+                            </div>
+                            <div class="schedule-image-cover"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-5 offset-lg-1">
                     <div class="schedule-wrapper">
                         <h2>Wedding Day Schedule</h2>
+                        <div class="title-embelishment">a</div>
                         <div class="schedule">
                             <div class="schedule-item">
                                 <div class="schedule-item__title">START<br>2:00 PM</div>
@@ -194,21 +219,39 @@
                 <div class="col-12 col-lg-4 offset-lg-1">
                     <div class="accommodations-wrapper">
                         <h2>Where to Stay</h2>
-                        <p>Here are some venues nearby where you may book your stay:</p>
+                        <div class="title-embelishment">a</div>
+                        <p>Here are some venues nearby where you could book your stay:</p>
                         <ul>
-                            <li><a href="https://www.kimptonclocktowerhotel.com/">Kimpton Hotel - this is our venue!</a>
+                            <li>
+                                <a href="https://www.kimptonclocktowerhotel.com/">
+                                    Kimpton Hotel
+                                </a>
+                                - this is our venue!
                             </li>
-                            <li><a href="https://www.maldronhotels.com/manchester-city-centre/">Maldron Hotel - a nice
-                                    modern hotel just 2 minutes away</a></li>
-                            <li><a
-                                    href="https://www.ihg.com/holidayinnexpress/hotels/gb/en/manchester/mchor/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-GB-_-MCHOR">Holiday
-                                    Inn - everyone knows this one, 2 minutes away</a></li>
+                            <li>
+                                <a href="https://www.maldronhotels.com/manchester-city-centre/">
+                                    Maldron Hotel
+                                </a>
+                                - a nice modern hotel just 2 minutes away
+                            </li>
+                            <li>
+                                <a
+                                    href="https://www.ihg.com/holidayinnexpress/hotels/gb/en/manchester/mchor/hoteldetail?cm_mmc=GoogleMaps-_-EX-_-GB-_-MCHOR">
+                                    Holiday Inn
+                                </a>
+                                - everyone knows this one, 2 minutes away
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-12 col-lg-7">
-                    <div class="accommodations-image-wrapper">
-                        <div class="accommodations-image"></div>
+                    <div class="accommodations-image-block">
+                        <div class="accommodations-image-wrapper">
+                            <div class="accommodations-image">
+                                <img src="dist/assets/p_5.jpg">
+                            </div>
+                            <div class="accommodations-image-cover"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -220,17 +263,40 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-5">
-                    <div class="photos-image-wrapper">
-                        <div class="photos-image"></div>
+                    <div class="photos-image-block">
+                        <div class="photos-image-wrapper">
+                            <div class="photos-image">
+                                <img src="dist/assets/p_3.jpg">
+                            </div>
+                            <div class="photos-image-cover"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 offset-lg-1">
                     <div class="photos-wrapper">
-                        <h2>Photos</h2>
-                        <p>We invite you to be fully present during our ceremony so we ask all of you <strong>not to use
-                                your phones or cameras during this time.</strong> Professional photos and videos will be
-                            sent to you! However, we are more than happy for you to take photos after the ceremony and
-                            share them with your loved ones!</p>
+                        <h2>Event Rules</h2>
+                        <div class="title-embelishment">a</div>
+                        <ul>
+                            <li>We invite you to be fully present during our ceremony so we ask all of you <strong>not
+                                    to use your phones or cameras during this time.</strong> Professional photos and
+                                videos
+                                will be sent to you! However, we are more than happy for you to take photos after the
+                                ceremony and share them with your loved ones!</li>
+                            <li>We warmly ask you to refrain from shouting "Gorko!" and to help us maintain the cozy,
+                                intimate atmosphere of this family celebration.</li>
+
+                            <li>We have worked hard to make this day beautiful and would be grateful if you could
+                                support the
+                                color theme of our wedding. We kindly ask ladies to avoid black and overly bright tones.
+                            </li>
+
+                            <li>Please do not give us fresh flowers. We won't have the chance to enjoy their beauty
+                                before we
+                                leave for our honeymoon. If you still wish to give us flowers, we will return in January
+                                and
+                                would be delighted to receive them then.</li>
+                        </ul>
+
                     </div>
                 </div>
             </div>
@@ -241,14 +307,25 @@
     <section id="sectionRSVP" class="section section--rsvp">
         <div class="container-fluid p-0">
             <div class="row">
-                <div class="col-12 col-lg-6 offset-lg-6">
+                <div class="col-12 col-lg-5 offset-lg-7">
                     <div class="rsvp-wrapper">
-                        <h2>Please confirm your attendance</h2>
+                        <h1>Please confirm your attendance!</h1>
                         <div class="rsvp-offset">
+                            <div class="rsvp-embelishment rsvp-embelishment--top">U</div>
                             <p>Please let us know if you will be joining us for our wedding celebration by messaging us
                                 through one of the channles below!</p>
-                            <a href="#" id="rsvp-button">Email</a><a href="#" id="rsvp-button">Telegram</a><a href="#"
-                                id="rsvp-button">WhatsApp</a>
+                            <div class="rsvp-buttons">
+                                <a href="#" class="rsvp-button">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </a>
+                                <a href="#" class="rsvp-button">
+                                    <i class="fa-brands fa-telegram"></i>
+                                </a>
+                                <a href="#" class="rsvp-button">
+                                    <i class="fa-brands fa-square-whatsapp"></i>
+                                </a>
+                            </div>
+                            <div class="rsvp-embelishment rsvp-embelishment--bottom">U</div>
                         </div>
                     </div>
                 </div>

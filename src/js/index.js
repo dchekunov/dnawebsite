@@ -22,10 +22,14 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }, 1000);
 
+    function getMenuWidth() {
+        return (document.getElementById("header").getBoundingClientRect().width - document.getElementsByClassName("container")[0].getBoundingClientRect().width) / 2 
+        + document.getElementsByClassName("menu")[0].getBoundingClientRect().width
+        + parseFloat(window.getComputedStyle(document.querySelector("#header > .container")).getPropertyValue('padding-right'));
+    }
+
     function closeMenu() {
         document.getElementById("header").classList.remove("open-menu");
-        document.getElementById("menuOpen").style.display = 'block';
-        document.getElementById("menuClose").style.display = 'none';
         let tl = gsap.timeline({onComplete: () => {
             if (window.scrollY > 100 && window.scrollY < window.innerHeight) {
                 let headerTimeline = gsap.timeline({onComplete: () => {
@@ -35,8 +39,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 headerTimeline.set("header", { top: 0, backgroundColor: "transparent", position: "absolute" });
             }
         }});
-        tl.to("#mainMenuDropdown", { left: 400 });
+        tl.to("#mainMenuDropdown", { left: getMenuWidth() });
         tl.set("#mainMenuDropdown", { display: "none", left: 0 });
+        tl.set(".menu-item", { opacity: 0});
 
         if (window.scrollY < 100) {
             let headerTimeline = gsap.timeline();
@@ -48,22 +53,30 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     function openMenu() {
         document.getElementById("header").classList.add("open-menu");
-        document.getElementById("menuClose").style.display = 'block';
-        document.getElementById("menuOpen").style.display = 'none';
-        gsap.set("#mainMenuDropdown", { display: "block" });
-        gsap.from("#mainMenuDropdown", { left: 400, display: "block" });
+        gsap.set("#mainMenuDropdown", { display: "block", width: getMenuWidth() + "px" });
+        gsap.from("#mainMenuDropdown", { left: getMenuWidth(), display: "block" });
+        let tl = gsap.timeline();
+        tl.fromTo(".menu-item", {height: 0}, { height: 76, stagger: 0.25, delay: 0.5});
+        tl.to(".menu-item", { opacity: 1, stagger: 0.25, delay: 0.5 }, "0.25");
 
         if (!document.getElementById("header").classList.contains("fixed-header")) {
             document.getElementById("header").classList.add("fixed-header");
-            gsap.to("header", { backgroundColor: "#e1c59c" });
+            gsap.to("header", { backgroundColor: "#fffaf4" });
             gsap.set("header", { position: "fixed" });
         }
     }
 
-    // Menu
-    document.getElementById("menuClose").addEventListener("click", closeMenu)
+    function toggleMenu() {
+        if (document.getElementById("header").classList.contains("open-menu")) {
+            closeMenu();
+        }
+        else {
+            openMenu();
+        }
+    }
 
-    document.getElementById("menuOpen").addEventListener("click", openMenu)
+    // Menu
+    document.getElementById("menuButton").addEventListener("click", toggleMenu)
 
     document.addEventListener("scroll", () => {
         if (window.scrollY >= window.innerHeight
@@ -72,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             document.getElementById("header").classList.add("fixed-header");
             let tl = gsap.timeline();
             tl.set("header", { position: "fixed" });
-            tl.fromTo("header", { top: -100, backgroundColor: "transparent" }, { top: 0, backgroundColor: "#e1c59c" });
+            tl.fromTo("header", { top: -100, background: "transparent" }, { top: 0, backgroundColor: "#fffaf4" });
         }
 
         if (window.scrollY < window.innerHeight 
@@ -83,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
                     document.getElementById("header").classList.remove("fixed-header");
                 }
             });
-            tl.to("header", { top: -100, backgroundColor: "transparent", duration: 0.5 });
+            tl.to("header", { top: -100, background: "transparent", duration: 0.25 });
             tl.set("header", { position: "absolute", top: 0 });
         }
     });
@@ -96,16 +109,16 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
 
     // Image Animations
-    function animateImage(listener, imageClass, imageCoverClass) {
+    function animateImage(listener, imageClass, imageCoverClass, toLeft) {
         let image = document.getElementsByClassName(imageClass);
         let imageClassSelector = "." + imageClass;
         let imageCoverClassClassSelector = "." + imageCoverClass;
         if (image[0].getBoundingClientRect().top - window.innerHeight / 2 <= 0) {
             let tl = gsap.timeline();
             tl.set(imageCoverClassClassSelector, {opacity: 1});
-            tl.fromTo(imageCoverClassClassSelector, { x: -500 }, { x: 0 });
+            tl.fromTo(imageCoverClassClassSelector, { xPercent: toLeft ? 100 : -100 }, { xPercent: 0 });
             tl.set(imageClassSelector, {opacity: 1});
-            tl.to(imageCoverClassClassSelector, { x: 700, duration: 1 });
+            tl.to(imageCoverClassClassSelector, { xPercent: toLeft ? -100 : 100, duration: 1 });
             tl.fromTo(imageClassSelector + " img", { scale: 1.25 }, {scale: 1, duration: 1.5}, "-=1.25");
             tl.set(imageCoverClassClassSelector, {display: "none"});
             document.removeEventListener("scroll", listener);
@@ -118,7 +131,31 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function detailsImagelistener() {
         animateImage(detailsImagelistener, 'details-image', 'details-image-cover');
     }
+    function scheduleImagelistener() {
+        animateImage(scheduleImagelistener, 'schedule-image', 'schedule-image-cover', true);
+    }
+    function accommodationsImagelistener() {
+        animateImage(accommodationsImagelistener, 'accommodations-image', 'accommodations-image-cover');
+    }
+    function photosImagelistener() {
+        animateImage(photosImagelistener, 'photos-image', 'photos-image-cover', true);
+    }
     
     document.addEventListener("scroll", noteImagelistener);
     document.addEventListener("scroll", detailsImagelistener);
+    document.addEventListener("scroll", scheduleImagelistener);
+    document.addEventListener("scroll", accommodationsImagelistener);
+    document.addEventListener("scroll", photosImagelistener);
+
+    // RSVP
+    function animateRSVPIcons() {
+        if (document.getElementsByClassName("rsvp-offset")[0].getBoundingClientRect().top - window.innerHeight / 2 <= 0) {
+            let tl = gsap.timeline();
+            tl.fromTo(".rsvp-buttons", { height: 0 }, { height: 110, delay: 0.5 });
+            tl.to(".rsvp-buttons", { opacity: 1 });
+            document.removeEventListener("scroll", animateRSVPIcons);
+        }
+    }
+
+    document.addEventListener("scroll", animateRSVPIcons);
 });

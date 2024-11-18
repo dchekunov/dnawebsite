@@ -11,6 +11,7 @@
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-optipng": "^8.0.0",
     "imagemin-svgo": "^11.0.1",
+    "imagemin-webp": "^8.0.0",
     "sass": "^1.80.6",
     "sass-loader": "^16.0.3",
     "style-loader": "^4.0.0",

@@ -13,6 +13,17 @@ header {
 
     &.fixed-header {
         color: $green;
+        border-bottom: 3px solid $green;
+
+        .logo {    
+            &--fixed {
+                display: block;
+            }
+
+            &--static {
+                display: none;
+            }
+        }
     }
 
     > .row {
@@ -28,8 +39,17 @@ header {
 
     .logo {
         padding: 0 20px;
-        font-family: 'Playball';
-        font-size: 3.5em;
+        max-width: 200px;
+
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        &--fixed {
+            display: none;
+        }
     }
 
     .menu {
@@ -41,9 +61,10 @@ header {
         cursor: pointer;
 
         .menu-button {
-            &#menuClose {
-                display: none;
-            }
+            font-family: 'Ephesis', sans-serif;
+            height: 100%;
+            display: flex;
+            align-items: center;
         }
 
         .menu-dropdown {
@@ -53,8 +74,9 @@ header {
             padding: 30px;
             top: 100px;
             left: 0px;
-            height: 100vh;
+            height: calc(100vh - 99px);
             width: 400px;
+            text-align: center;
 
             .menu-item {
                 display: block;
@@ -62,6 +84,19 @@ header {
                 color: $gold;
                 text-decoration: none;
                 user-select: none;
+                opacity: 0;
+
+                &::before, &::after {
+                    font-family: 'Embelishments', sans-serif;
+                    display: inline-block;
+                    content: 'O';
+                    margin: 0 10px;
+                    transform: translate(0, -5px);
+                }
+
+                &:after {
+                    transform: translate(0, -5px) scale(-1, 1);
+                }
             }
         }
     }
