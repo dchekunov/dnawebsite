@@ -6933,12 +6933,15 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     function openMenu() {
+        gsapWithCSS.killTweensOf("header");
+        gsapWithCSS.killTweensOf("#mainMenuDropdown");
+        gsapWithCSS.killTweensOf(".menu-item");
         document.getElementById("header").classList.add("open-menu");
         gsapWithCSS.set("#mainMenuDropdown", { display: "block", width: getMenuWidth() + "px" });
-        gsapWithCSS.from("#mainMenuDropdown", { left: getMenuWidth(), display: "block" });
+        gsapWithCSS.fromTo("#mainMenuDropdown", { left: getMenuWidth() }, { left: 0 });
         let tl = gsapWithCSS.timeline();
         tl.fromTo(".menu-item", {height: 0}, { height: 76, stagger: 0.25, delay: 0.5});
-        tl.to(".menu-item", { opacity: 1, stagger: 0.25, delay: 0.5 }, "0.25");
+        tl.fromTo(".menu-item", { opacity: 0}, { opacity: 1, stagger: 0.25, delay: 0.5 }, "0.25");
 
         if (!document.getElementById("header").classList.contains("fixed-header")) {
             document.getElementById("header").classList.add("fixed-header");
