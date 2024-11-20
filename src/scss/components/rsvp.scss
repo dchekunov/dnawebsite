@@ -1,13 +1,18 @@
 @use '../base/variables' as *;
 
 .rsvp-offset {
-    width: 60%;
+    width: 460px;
     margin: 20px 15% 0 auto;
     border-radius: 20px;
     padding: 25px 15px;
     background: $gold;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
     color: $green;
+
+    @media only screen and (max-width: 993px) {
+        width: 90%;
+        margin: 20px auto;
+    }
 
     p {
         margin-top: 1rem;

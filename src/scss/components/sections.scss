@@ -8,11 +8,20 @@ $section-height: calc(100vh - 100px);
     background-color: $beige;
     padding-top: 100px;
 
+    @media only screen and (max-width: 993px) {
+        padding: 50px 10px 0;
+        min-height: initial;
+    }
+
     &--welcome {
-        padding-top: 0;
+        padding-top: 50px;
         min-height: 100vh;
         background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)), url("../assets/splash.jpg?as=webp");
         background-size: cover;
+
+        @media only screen and (max-width: 576px) {
+            padding-top: 100px;
+        }
 
         .welcome-wrapper,
         .welcome-image-wrapper {
@@ -21,17 +30,6 @@ $section-height: calc(100vh - 100px);
             flex-direction: column;
             align-items: center;
             justify-content: center;
-        }
-
-        .welcome-embelishment {
-            font-family: 'Embelishments', sans-serif;
-            color: $white;
-            font-size: 3.5em;
-            display: flex;
-
-            &--bottom {
-                transform: scale(1, -1);
-            }
         }
 
         .welcome-image {
@@ -68,6 +66,11 @@ $section-height: calc(100vh - 100px);
             align-items: flex-start;
             justify-content: flex-end;
 
+            @media only screen and (max-width: 993px) {
+                height: auto;
+                margin-bottom: 25px;
+            }
+
             .note-image-wrapper {
                 width: 100%;
                 height: 80%;
@@ -102,8 +105,12 @@ $section-height: calc(100vh - 100px);
     }
 
     &--break {
-        height: 60vh;
+        max-height: 60vh;
         overflow: hidden;
+
+        @media only screen and (max-width: 993px) {
+            padding: 50px 0 0;
+        }
 
         .break-image {
             width: 100%;
@@ -119,6 +126,14 @@ $section-height: calc(100vh - 100px);
             align-items: center;
             justify-content: center;
 
+            @media only screen and (max-width: 993px) {
+                margin-bottom: 25px;
+            }
+
+            h3 {
+                font-size: 3em;
+            }
+
             iframe {
                 margin-top: 30px;
             }
@@ -130,11 +145,21 @@ $section-height: calc(100vh - 100px);
             align-items: flex-end;
             justify-content: flex-end;
 
+            @media only screen and (max-width: 993px) {
+                height: auto;
+                margin-bottom: 25px;
+            }
+
             .details-image-wrapper {
                 width: 70%;
                 height: 80%;
                 position: relative;
                 overflow: hidden;
+
+                @media only screen and (max-width: 993px) {
+                    width: 100%;
+                    height: 100%;
+                }
 
                 .details-image {
                     opacity: 0;
@@ -174,9 +199,18 @@ $section-height: calc(100vh - 100px);
             iframe {
                 margin-top: 30px;
             }
+
+            @media only screen and (max-width: 993px) {
+                margin-bottom: 25px;
+            }
         }
 
         .schedule-image-block {
+
+            @media only screen and (max-width: 993px) {
+                margin-bottom: 25px;
+            }
+
             .schedule-image-wrapper {
                 position: relative;
                 overflow: hidden;
@@ -218,6 +252,11 @@ $section-height: calc(100vh - 100px);
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            
+            @media only screen and (max-width: 993px) {
+                min-height: auto;
+                margin-bottom: 25px;
+            }
 
             iframe {
                 margin-top: 30px;
@@ -340,6 +379,10 @@ $section-height: calc(100vh - 100px);
 
             h1 {
                 color: $grey;
+
+                @media only screen and (max-width: 993px) {
+                    font-size: 3em;
+                }
             }
         }
     }

@@ -23,9 +23,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
 
     function getMenuWidth() {
-        return (document.getElementById("header").getBoundingClientRect().width - document.getElementsByClassName("container")[0].getBoundingClientRect().width) / 2 
-        + document.getElementsByClassName("menu")[0].getBoundingClientRect().width
-        + parseFloat(window.getComputedStyle(document.querySelector("#header > .container")).getPropertyValue('padding-right'));
+        return window.innerWidth < 994 ? window.innerWidth : 460;
     }
 
     function closeMenu() {
@@ -39,8 +37,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
                 headerTimeline.set("header", { top: 0, backgroundColor: "transparent", position: "absolute" });
             }
         }});
-        tl.to("#mainMenuDropdown", { left: getMenuWidth() });
-        tl.set("#mainMenuDropdown", { display: "none", left: 0 });
+        tl.to("#mainMenuDropdown", { right: -getMenuWidth() });
+        tl.set("#mainMenuDropdown", { display: "none", right: 0 });
         tl.set(".menu-item", { opacity: 0});
 
         if (window.scrollY < 100) {
@@ -57,9 +55,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
         gsap.killTweensOf(".menu-item");
         document.getElementById("header").classList.add("open-menu");
         gsap.set("#mainMenuDropdown", { display: "block", width: getMenuWidth() + "px" });
-        gsap.fromTo("#mainMenuDropdown", { left: getMenuWidth() }, { left: 0 });
+        gsap.fromTo("#mainMenuDropdown", { right: -getMenuWidth() }, { right: 0 });
         let tl = gsap.timeline();
-        tl.fromTo(".menu-item", {height: 0}, { height: 76, stagger: 0.25, delay: 0.5});
+        tl.fromTo(".menu-item", { height: 0}, { height: 76, stagger: 0.25, delay: 0.5});
         tl.fromTo(".menu-item", { opacity: 0}, { opacity: 1, stagger: 0.25, delay: 0.5 }, "0.25");
 
         if (!document.getElementById("header").classList.contains("fixed-header")) {
@@ -152,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // RSVP
     function animateRSVPIcons() {
-        if (document.getElementsByClassName("rsvp-offset")[0].getBoundingClientRect().top - window.innerHeight / 2 <= 0) {
+        if (document.getElementsByClassName("rsvp-offset")[0].getBoundingClientRect().top - window.innerHeight / 2 <= 50) {
             let tl = gsap.timeline();
             tl.fromTo(".rsvp-buttons", { height: 0 }, { height: 110, delay: 0.5 });
             tl.to(".rsvp-buttons", { opacity: 1 });

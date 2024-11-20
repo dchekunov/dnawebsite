@@ -69,14 +69,15 @@ header {
 
         .menu-dropdown {
             display: none;    
-            position: absolute;
+            position: fixed;
             background-color: $green;
             padding: 30px;
             top: 100px;
-            left: 0px;
+            right: 0px;
             height: calc(100vh - 99px);
-            width: 400px;
+            width: 460px;
             text-align: center;
+            overflow-y: scroll;
 
             .menu-item {
                 display: block;
@@ -92,6 +93,10 @@ header {
                     content: 'O';
                     margin: 0 10px;
                     transform: translate(0, -5px);
+
+                    @media only screen and (max-width: 576px) {
+                        font-size: 0.6em;
+                    }
                 }
 
                 &:after {
