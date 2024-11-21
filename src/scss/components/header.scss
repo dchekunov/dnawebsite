@@ -26,6 +26,14 @@ header {
         }
     }
 
+    &.open-menu {
+        .menu {
+            .menu-overlay {
+                display: block;
+            }
+        }
+    }
+
     > .row {
         width: 100%;
     }
@@ -58,13 +66,22 @@ header {
         font-size: 3.5em;
         height: 100px;
         position: relative;
-        cursor: pointer;
 
         .menu-button {
             font-family: 'Ephesis', sans-serif;
             height: 100%;
             display: flex;
             align-items: center;
+            cursor: pointer;
+        }
+
+        .menu-overlay {
+            display: none;    
+            position: fixed;
+            top: 100px;
+            width: 100vw;
+            left: 0;
+            height: calc(100vh - 99px);
         }
 
         .menu-dropdown {
@@ -73,11 +90,12 @@ header {
             background-color: $green;
             padding: 30px;
             top: 100px;
-            right: 0px;
+            right: 0;
             height: calc(100vh - 99px);
             width: 460px;
             text-align: center;
             overflow-y: scroll;
+            cursor: pointer;
 
             .menu-item {
                 display: block;

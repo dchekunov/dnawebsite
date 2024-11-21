@@ -10,8 +10,12 @@
     color: $green;
 
     @media only screen and (max-width: 993px) {
-        width: 90%;
-        margin: 20px auto;
+        width: 100%;
+        background: $beige;
+        box-shadow: none;
+        color: $grey;
+        margin: 0;
+        border-radius: 0;
     }
 
     p {

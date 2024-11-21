@@ -9,7 +9,7 @@ $section-height: calc(100vh - 100px);
     padding-top: 100px;
 
     @media only screen and (max-width: 993px) {
-        padding: 50px 10px 0;
+        padding: 100px 10px 0;
         min-height: initial;
     }
 
@@ -19,8 +19,13 @@ $section-height: calc(100vh - 100px);
         background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)), url("../assets/splash.jpg?as=webp");
         background-size: cover;
 
+        @media only screen and (max-width: 993px) {
+            min-height: initial;
+        }
+
         @media only screen and (max-width: 576px) {
             padding-top: 100px;
+            padding-bottom: 25px;
         }
 
         .welcome-wrapper,
@@ -30,6 +35,10 @@ $section-height: calc(100vh - 100px);
             flex-direction: column;
             align-items: center;
             justify-content: center;
+
+            @media only screen and (max-width: 993px) {
+                min-height: initial;
+            }
         }
 
         .welcome-image {
@@ -308,6 +317,10 @@ $section-height: calc(100vh - 100px);
     &--photos {
         padding-bottom: 50px;
 
+        @media only screen and (max-width: 993px) {
+            padding-bottom: 0;
+        }
+
         .photos-wrapper {
             min-height: $section-height;
             display: flex;
@@ -369,6 +382,10 @@ $section-height: calc(100vh - 100px);
         background-position: center;
         margin-bottom: 0;
 
+        @media only screen and (max-width: 993px) {
+            background: none;
+        }
+
         .rsvp-wrapper {
             min-height: $section-height;
             display: flex;
@@ -377,12 +394,50 @@ $section-height: calc(100vh - 100px);
             justify-content: flex-start;
             padding-top: 50px;
 
+            @media only screen and (max-width: 993px) {
+                display: block;
+                background: $beige;
+                min-height: auto;
+            }
+
             h1 {
                 color: $grey;
 
                 @media only screen and (max-width: 993px) {
                     font-size: 3em;
                 }
+            }
+        }
+
+        .rsvp-image-wrapper {
+            height: $section-height;
+            position: relative;
+            overflow: hidden;
+
+            .rsvp-image {
+                width: 100%;
+                height: 100%;
+                opacity: 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                z-index: 1;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .rsvp-image-cover {
+                width: 100%;
+                height: 100%;
+                top: 0;
+                background-color: $gold;
+                content: '';
+                position: absolute;
+                z-index: 2;
+                opacity: 0;
             }
         }
     }

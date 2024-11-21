@@ -22,8 +22,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }, 1000);
 
+    function isMobile() {
+        return window.innerWidth < 994;
+    }
+
     function getMenuWidth() {
-        return window.innerWidth < 994 ? window.innerWidth : 460;
+        return isMobile() ? window.innerWidth : 460;
     }
 
     function closeMenu() {
@@ -76,8 +80,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
         }
     }
 
+    function closeMobileMenu() {
+        if (isMobile()) {
+            closeMenu();
+        }
+    }
+
     // Menu
     document.getElementById("menuButton").addEventListener("click", toggleMenu)
+    document.getElementById("menuOverlay").addEventListener("click", toggleMenu)
+    document.querySelectorAll(".menu-item").forEach(element => {
+        element.addEventListener("click", closeMobileMenu);
+    });
 
     document.addEventListener("scroll", () => {
         if (window.scrollY >= window.innerHeight
@@ -141,16 +155,28 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function photosImagelistener() {
         animateImage(photosImagelistener, 'photos-image', 'photos-image-cover', true);
     }
+    function rsvpImagelistener() {
+        animateImage(rsvpImagelistener, 'rsvp-image', 'rsvp-image-cover', true);
+    }
     
     document.addEventListener("scroll", noteImagelistener);
     document.addEventListener("scroll", detailsImagelistener);
     document.addEventListener("scroll", scheduleImagelistener);
     document.addEventListener("scroll", accommodationsImagelistener);
     document.addEventListener("scroll", photosImagelistener);
+    document.addEventListener("scroll", rsvpImagelistener);
 
     // RSVP
     function animateRSVPIcons() {
-        if (document.getElementsByClassName("rsvp-offset")[0].getBoundingClientRect().top - window.innerHeight / 2 <= 50) {
+        let offset = 0;
+        if (isMobile()) {
+            offset = document.getElementsByClassName("rsvp-offset")[0].getBoundingClientRect().top - window.innerHeight;
+        }
+        else {
+            offset = document.getElementsByClassName("rsvp-offset")[0].getBoundingClientRect().top - window.innerHeight / 2;
+        }
+
+        if (offset <= 50) {
             let tl = gsap.timeline();
             tl.fromTo(".rsvp-buttons", { height: 0 }, { height: 110, delay: 0.5 });
             tl.to(".rsvp-buttons", { opacity: 1 });
@@ -159,4 +185,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     document.addEventListener("scroll", animateRSVPIcons);
+
+    
+    let text = encodeURI("Hey! I confirm that I will be attending your wedding ceremony and wedding breakfast on the 14th of December! I will also come to the bar afterwards!")
+    document.querySelectorAll(".rsvp-buttons a").forEach(element => {
+        element.href += text;
+    });
+
 });

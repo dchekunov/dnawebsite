@@ -48,7 +48,11 @@
             }
         }
 
-        &:first-child {
+        &:first-child, &:last-child {
+            .schedule-item__title, .schedule-item__description {
+                transform: translate(0, -10px);
+            }
+
             &::after {
                 top: -30px;
             }
@@ -56,10 +60,6 @@
 
         &:last-child {
             border-right: none;
-
-            &::after {
-                top: -30px;
-            }
         }
 
         @media only screen and (max-width: 993px) {
@@ -84,7 +84,13 @@
                     position: static;
                     display: block;
                     margin: 0 auto;
-                    transform: translate(-10px, 0);
+                    text-align: center;
+                }
+            }
+
+            &:first-child, &:last-child {
+                .schedule-item__title, .schedule-item__description {
+                    transform: none;
                 }
             }
         }

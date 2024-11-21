@@ -26,6 +26,7 @@
                             Menu
                             <div class="menu-button-embelishment"></div>
                         </div>
+                        <div class="menu-overlay" id="menuOverlay"></div>
                         <div class="menu-dropdown" id="mainMenuDropdown">
                             <div class="menu-dropdown-embelishment menu-dropdown-embelishment--top">U</div>
                             <a href="#sectionWelcome" class="menu-item">Home</a>
@@ -202,7 +203,7 @@
                                 </div>
                             </div>
                             <div class="schedule-item">
-                                <div class="schedule-item__title">BAR<br>10:00 PM</div>
+                                <div class="schedule-item__title">BAR<br>9:00 PM</div>
                                 <div class="schedule-item__description">
                                     Let's continue the fun at Lock91! Drink, chat, dance and have fun! <br> M3 4QL
                                 </div>
@@ -306,26 +307,35 @@
     </section>
 
     <!-- RSVP Section -->
-    <section id="sectionRSVP" class="section section--rsvp">
+    <section class="section section--rsvp">
         <div class="container-fluid">
             <div class="row">
+                <div class="col-12 d-lg-none">
+                    <div class="rsvp-image-block">
+                        <div class="rsvp-image-wrapper">
+                            <div class="rsvp-image">
+                                <img src="dist/assets/p_8.webp">
+                            </div>
+                            <div class="rsvp-image-cover"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-12 col-lg-6 offset-lg-6 col-xl-5 offset-xl-7">
                     <div class="rsvp-wrapper">
-                        <h1>Please confirm your attendance!</h1>
-                        <div class="rsvp-offset">
+                        <h1 class="d-none d-lg-block">Please confirm your attendance!</h1>
+                        <div class="rsvp-offset" id="sectionRSVP">
                             <div class="rsvp-embelishment rsvp-embelishment--top">U</div>
-                            <p>Please let us know if you will be joining us for our wedding celebration by messaging us
-                                through one of the channles below!</p>
+                            <p>Please let us know if you will be joining us for our wedding celebration!</p>
                             <div class="rsvp-buttons">
-                                <a href="mailto:dmytro.chekunov@gmail.com?subject=Wedding RSVP&body=Hey%21%20I%20confirm%20that%20I%20will%20be%20attending%20your%20wedding%20on%20the%2014th%20of%20December%21"
+                                <a href="mailto:dmytro.chekunov@gmail.com?subject=Wedding RSVP&body="
                                     class="rsvp-button">
                                     <i class="fa-solid fa-envelope"></i>
                                 </a>
-                                <a href="https://t.me/dchekunov?text=Hey%21%20I%20confirm%20that%20I%20will%20be%20attending%20your%20wedding%20on%20the%2014th%20of%20December%21"
+                                <a href="https://t.me/dchekunov?text="
                                     class="rsvp-button">
                                     <i class="fa-brands fa-telegram"></i>
                                 </a>
-                                <a href="https://wa.me/447857769587?text=Hey%21%20I%20confirm%20that%20I%20will%20be%20attending%20your%20wedding%20on%20the%2014th%20of%20December%21"
+                                <a href="https://wa.me/447857769587?text="
                                     class="rsvp-button">
                                     <i class="fa-brands fa-square-whatsapp"></i>
                                 </a>
