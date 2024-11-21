@@ -166,22 +166,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.addEventListener("scroll", photosImagelistener);
     document.addEventListener("scroll", rsvpImagelistener);
 
-    // Text Animations
-    // function animateTextBlock(listener, textBlockClass) {
-    //     let textBlock = document.getElementsByClassName(textBlockClass);
-    //     let textBlockClassSelector = "." + textBlockClass;
-    //     if (textBlock[0].getBoundingClientRect().top - window.innerHeight / 2 <= 0) {
-    //         gsap.fromTo(textBlockClassSelector, { yPercent: 50, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 2 });
-    //         document.removeEventListener("scroll", listener);
-    //     }
-    // }
-
-    // function noteTextBlocklistener() {
-    //     animateTextBlock(noteTextBlocklistener, 'note-wrapper');
-    // }
-    
-    // document.addEventListener("scroll", noteTextBlocklistener);
-
     // RSVP
     function animateRSVPIcons() {
         let offset = 0;
@@ -192,7 +176,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             offset = document.getElementsByClassName("rsvp-offset")[0].getBoundingClientRect().top - window.innerHeight / 2;
         }
 
-        if (offset <= 50) {
+        if (offset <= 120) {
             let tl = gsap.timeline();
             tl.fromTo(".rsvp-buttons", { height: 0 }, { height: 110, delay: 0.5 });
             tl.to(".rsvp-buttons", { opacity: 1 });
