@@ -97,6 +97,13 @@ header {
             overflow-y: scroll;
             cursor: pointer;
 
+            // Hiding Scrollbar
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+            scrollbar-width: none;  /* Firefox */
+            &:-webkit-scrollbar { 
+                display: none;  /* Safari and Chrome */
+            }
+
             .menu-item {
                 display: block;
                 font-size: 0.7em;
@@ -104,6 +111,12 @@ header {
                 text-decoration: none;
                 user-select: none;
                 opacity: 0;
+                transition: color 0.75s ease-in-out;
+
+                &:hover {
+                    color: $beige;
+                    transition: color 0.75s ease-in-out;
+                }
 
                 &::before, &::after {
                     font-family: 'Embelishments', sans-serif;

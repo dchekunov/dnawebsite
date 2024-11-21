@@ -30,12 +30,18 @@
         justify-content: space-evenly;
 
         .rsvp-button {
-            display: inline-block;
+            display: block;
             padding: 10px;
             color: $green;
             font-weight: bold;
             text-decoration: none;
             font-size: 3.5em;
+            transition: color 0.75s ease-in-out;
+
+            &:hover {
+                color: $grey;
+                transition: color 0.75s ease-in-out;
+            }
         }
     }
 }

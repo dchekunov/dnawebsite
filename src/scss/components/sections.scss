@@ -14,23 +14,23 @@ $section-height: calc(100vh - 100px);
     }
 
     &--welcome {
-        padding-top: 50px;
+        padding-top: 100px;
         min-height: 100vh;
         background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5)), url("../assets/splash.jpg?as=webp");
         background-size: cover;
+        user-select: none;
 
         @media only screen and (max-width: 993px) {
             min-height: initial;
         }
 
         @media only screen and (max-width: 576px) {
-            padding-top: 100px;
             padding-bottom: 25px;
         }
 
         .welcome-wrapper,
         .welcome-image-wrapper {
-            min-height: 100vh;
+            min-height: $section-height;;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -46,9 +46,13 @@ $section-height: calc(100vh - 100px);
             background-size: cover;
             background-position: 50% 75%;
             width: 100%;
-            height: 70vh;
+            height: 640px;
             border-radius: 2px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+            @media only screen and (max-width: 1200px) {
+                height: 570px;
+            }
         }
 
         p {
@@ -278,6 +282,12 @@ $section-height: calc(100vh - 100px);
 
             a {
                 color: $green;
+                transition: color 0.75s ease-in-out;
+
+                &:hover {
+                    color: $grey;
+                    transition: color 0.75s ease-in-out;
+                }
             }
         }
 

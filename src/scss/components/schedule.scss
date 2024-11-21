@@ -1,3 +1,5 @@
+@use '../base/variables' as *;
+
 .schedule {
     display: flex;
     flex-direction: column;
@@ -7,6 +9,13 @@
         width: 50%;
         position: relative;
         max-height: 80px;
+
+        &:hover {
+            .schedule-item__title, .schedule-item__description {
+                color: $green;
+                transition: transform 1s ease-in-out;
+            }
+        }
 
         &:nth-child(2n) {
             align-self: flex-end;

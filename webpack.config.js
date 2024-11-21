@@ -1,21 +1,25 @@
 const path = require('path');
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: [
         './src/js/index.js',
         './src/scss/index.scss'
     ],
+    plugins: [new MiniCssExtractPlugin({
+        filename: "bundle.css",
+    })],
     module: {
         rules: [
             {
-                test: /\.scss$/i,
+                test: /\.(sc|c)ss$/i,
                 exclude: /node_modules/,
                 generator: {
                     filename: 'bundle.css'
                 },
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',   // Resolves @import and url()
                         options: { url: true }, // Enable url() handling
@@ -39,8 +43,7 @@ module.exports = {
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-        publicPath: "dist/",
+        filename: 'bundle.js'
     },
     watch: true,
     optimization: {

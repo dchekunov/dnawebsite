@@ -61,8 +61,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
         gsap.set("#mainMenuDropdown", { display: "block", width: getMenuWidth() + "px" });
         gsap.fromTo("#mainMenuDropdown", { right: -getMenuWidth() }, { right: 0 });
         let tl = gsap.timeline();
-        tl.fromTo(".menu-item", { height: 0}, { height: 76, stagger: 0.25, delay: 0.5});
-        tl.fromTo(".menu-item", { opacity: 0}, { opacity: 1, stagger: 0.25, delay: 0.5 }, "0.25");
+        tl.fromTo(".menu-item", { height: 0}, { height: 76, stagger: 0.2, delay: 0.5, duration: 0.25});
+        tl.fromTo(".menu-item", { opacity: 0}, { opacity: 1, stagger: 0.2, delay: 0.5, duration: 0.25 }, "0.25");
 
         if (!document.getElementById("header").classList.contains("fixed-header")) {
             document.getElementById("header").classList.add("fixed-header");
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
             tl.set(imageCoverClassClassSelector, {opacity: 1});
             tl.fromTo(imageCoverClassClassSelector, { xPercent: toLeft ? 100 : -100 }, { xPercent: 0 });
             tl.set(imageClassSelector, {opacity: 1});
-            tl.to(imageCoverClassClassSelector, { xPercent: toLeft ? -100 : 100, duration: 1 });
+            tl.to(imageCoverClassClassSelector, { xPercent: toLeft ? -100 : 100, duration: 1, delay: 0.25 });
             tl.fromTo(imageClassSelector + " img", { scale: 1.25 }, {scale: 1, duration: 1.5}, "-=1.25");
             tl.set(imageCoverClassClassSelector, {display: "none"});
             document.removeEventListener("scroll", listener);
@@ -165,6 +165,22 @@ document.addEventListener("DOMContentLoaded", function (event) {
     document.addEventListener("scroll", accommodationsImagelistener);
     document.addEventListener("scroll", photosImagelistener);
     document.addEventListener("scroll", rsvpImagelistener);
+
+    // Text Animations
+    // function animateTextBlock(listener, textBlockClass) {
+    //     let textBlock = document.getElementsByClassName(textBlockClass);
+    //     let textBlockClassSelector = "." + textBlockClass;
+    //     if (textBlock[0].getBoundingClientRect().top - window.innerHeight / 2 <= 0) {
+    //         gsap.fromTo(textBlockClassSelector, { yPercent: 50, opacity: 0 }, { yPercent: 0, opacity: 1, duration: 2 });
+    //         document.removeEventListener("scroll", listener);
+    //     }
+    // }
+
+    // function noteTextBlocklistener() {
+    //     animateTextBlock(noteTextBlocklistener, 'note-wrapper');
+    // }
+    
+    // document.addEventListener("scroll", noteTextBlocklistener);
 
     // RSVP
     function animateRSVPIcons() {
